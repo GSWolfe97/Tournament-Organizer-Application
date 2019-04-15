@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,6 +21,45 @@ namespace Tournament_Organizer_Application.Forms
         public MainForm()
         {
             InitializeComponent();
+            btn_wrestlersTab.MouseEnter += new EventHandler(btn_wrestlerTab_MouseEnter);
+            btn_wrestlersTab.MouseLeave += new EventHandler(btn_wrestlerTab_MouseLeave);
+            btn_tournamentsTab1.MouseEnter += new EventHandler(btn_tournamentsTab1_MouseEnter);
+            btn_tournamentsTab1.MouseLeave += new EventHandler(btn_tournamentsTab1_MouseLeave);
+            if (tab_statistics.SelectedIndex == 0)
+            {
+                btn_tournamentsTab.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Tournaments_Active));
+            }
+        }
+        //**************************************************************
+        //                       Button Functions
+        //**************************************************************
+        //Wrestler tab button
+        private void btn_wrestlerTab_Click(object sender, EventArgs e)
+        {
+            tab_statistics.SelectedIndex = 1;
+            btn_wrestlersTab1.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Wrestlers_Active));
+        }
+        private void btn_wrestlerTab_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_wrestlersTab.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Wrestlers_Active));
+        }
+        private void btn_wrestlerTab_MouseLeave(object sender, EventArgs e)
+        {
+            this.btn_wrestlersTab.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Wrestlers));
+        }
+
+        //Tournaments tab button
+        private void btn_tournamentsTab_Click(object sender, EventArgs e)
+        {
+            tab_statistics.SelectedIndex = 0;
+        }
+        private void btn_tournamentsTab1_MouseEnter(object sender, EventArgs e)
+        {
+            this.btn_tournamentsTab1.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Tournaments_Active));
+        }
+        private void btn_tournamentsTab1_MouseLeave(object sender, EventArgs e)
+        {
+            this.btn_tournamentsTab1.BackgroundImage = ((System.Drawing.Image)(Properties.Resources.Tournaments));
         }
 
         //**************************************************************
